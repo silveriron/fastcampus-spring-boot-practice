@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@RestController("/")
 public class MainController {
 
     private final SortService sortService;
@@ -16,9 +16,13 @@ public class MainController {
         this.sortService = sortService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public String hello(@RequestParam List<String> list) {
         return sortService.doSort(list).toString();
     }
 
+    @GetMapping("test")
+    public String test() {
+        return "test";
+    }
 }
